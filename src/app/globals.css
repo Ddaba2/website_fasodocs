@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-green: #009b3a;
+  --color-brand-green-dark: #007a2e;
+  --color-brand-green-soft: #e8f7ee;
+  --color-brand-yellow: #fcd116;
+  --color-brand-red: #ce1126;
+  --color-ink: #2d2d2d;
+  --color-ink-muted: #5c5c5c;
+  --color-ink-subtle: #8a8a8a;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f7f8f7;
+  --color-surface-muted: #eef1ef;
+  --color-border: #e2e6e3;
+  --color-border-strong: #c8d0cb;
+
+  --font-sans: var(--font-dm-sans), "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), Fraunces, Georgia, "Times New Roman", serif;
+
+  --shadow-soft: 0 8px 30px rgba(45, 45, 45, 0.06);
+  --shadow-card: 0 4px 18px rgba(45, 45, 45, 0.05);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-surface);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-brand-green) 22%, white);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-green);
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .container-page {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .brand-accent-bar {
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(
+      90deg,
+      var(--color-brand-green) 0%,
+      var(--color-brand-green) 70%,
+      var(--color-brand-yellow) 70%,
+      var(--color-brand-yellow) 85%,
+      var(--color-brand-red) 85%,
+      var(--color-brand-red) 100%
+    );
+  }
+}
